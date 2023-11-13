@@ -2,22 +2,125 @@
 
 import Header from '../../header';
 import './styleMenuActivitie.css';
-import addIcon from '../../assets/icons/addIcon.png';
-import deleteIcon from '../../assets/icons/deleteIcon.png';
-import editIcon from '../../assets/icons/editIcon.png';
+
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+
 import backendUrl from '../../configServer';
 import Swal from 'sweetalert2';
+import React, { useState, useEffect } from 'react';
+
+import addIcon from '../../assets/icons/addIcon.png';
+import viewIcon from '../../assets/icons/ojo.png';
+import deleteIcon from '../../assets/icons/deleteIcon.png';
+import editIcon from '../../assets/icons/editIcon.png';
+import playIcon from '../../assets/icons/playIcon.png';
+
+import ActividadPanel from './actividadesDashboard';
 
 function ActivityMenu() {
 
-    const navigate = useNavigate(); // Get the navigation function
+  const [pacientes, setPacientes] = useState([]);
+  const [selectedPaciente, setSelectedPaciente] = useState(null);
 
-    const AddRutina = () => {
-        navigate('/RutinaAdd');
-      }
+  const navigate = useNavigate();
+  const [rutinas, setRutinas] = useState([]);
+
+
+  const deleteRutina = (id) => {
+
+
+    axios.delete(backendUrl + '/api/rutinas/delete/' + id)
+      .then(response => {
+        if (response.status === 200) {
+          Swal.fire({
+            title: 'Eliminada',
+            icon: 'success',
+
+            willClose: () => {
+              // Este código se ejecuta cuando el alert se cierra
+              window.location.reload();
+            }
+          });
+
+        }
+
+      })
+      .catch(error => {
+        console.error('Error al eliminar rutina:', error);
+      });
+
+
+  }
+
+  const viewPersonal = (paciente) => {
+    var Nombre = paciente.nombre;
+
+    Swal.fire({
+      title: 'Información del usuario',
+      icon: 'info',
+      html:
+        '<b>Nombre: </b> ' + paciente.nombre + '<br>' +
+        '<b>Apellido Paterno: </b> ' + paciente.apellidop + '<br>' +
+        '<b>Apellido Materno: </b> ' + paciente.apellidom + '<br>' +
+        '<b>Email: </b> ' + paciente.email + '<br>' +
+        '<b>Password:  </b> ' + paciente.password + '<br>' +
+        '<b>Telefono:  </b> ' + paciente.telefono + '<br>' +
+        '<b>Genero:  </b> ' + paciente.genero + '<br>' +
+        '<b>Cargo:  </b> ' + paciente.cargo + '<br>' +
+        '<b>Especialidad: </b> ' + paciente.especialidad + '<br>',
+
+      showCloseButton: true,
+      showCancelButton: false,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Aceptar!',
+      confirmButtonAriaLabel: 'Thumbs up, great!',
+      cancelButtonText:
+        '<i class="fa fa-thumbs-down"></i>',
+      cancelButtonAriaLabel: 'Thumbs down'
+    })
+  }
+
+  const goToEdit = (data) => {
+
+
+    navigate('/ModifyPersonal', { state: { data } });
+  }
+
+
+
+  useEffect(() => {
+    // Realiza una solicitud al servidor para obtener los datos de pacientes
+    axios.get(backendUrl + '/api/rutinas/all') // Ajusta la URL de la API según tu configuración
+      .then(response => {
+        setRutinas(response.data);
+      })
+      .catch(error => {
+        console.error('Error al obtener datos de pacientes:', error);
+      });
+
+      axios.get(backendUrl+'/api/pacientes') // Ajusta la URL de la API según tu configuración
+      .then(response => {
+        setPacientes(response.data);
+      })
+      .catch(error => {
+        console.error('Error al obtener datos de pacientes:', error);
+      });
+  }, []);
+
+
+
+
+  const AddRutina = () => {
+    navigate('/RutinaAdd');
+  }
+
+
+   const goActividades = () => {
+    navigate('/ActividadDashboard');
+  }
+
 
   return (
     <div className="ContentHome">
@@ -28,23 +131,51 @@ function ActivityMenu() {
         </div>
         <div className="contSub">
           <h2>Seleccionar paciente</h2>
-          <p>select</p>
+          <select
+        id="pacientesSelect"
+        value={selectedPaciente}
+        onChange={(e) => setSelectedPaciente(e.target.value)}
+      >
+        <option value={null}>Selecciona un paciente</option>
+        {pacientes.map(paciente => (
+          <option key={paciente.id} value={paciente.id}>
+            {paciente.nombre} {paciente.apellido}
+          </option>
+        ))}
+      </select>
         </div>
         <div className="contTable">
-        <table border="1">
-        <tr>
-            <th>Nombre de Rutina</th>
-            <th colspan="4">Acciones</th>
-        </tr>
-        <tr>
-            <td>Rutina 1</td>
-            <td><a href="#">Ver</a></td>
-            <td><a href="#">Editar</a></td>
-            <td><a href="#">Eliminar</a></td>
-            <td><a href="#">Play</a></td>
-        </tr>
-       
-    </table>   
+          <table class="pacientes-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción </th>
+                <th>Fecha de creacion</th>
+
+                <th>Play</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rutinas.map(rutina => (
+                <tr key={rutina.rid}>
+                  <td>{rutina.nombre}</td>
+                  <td>{rutina.descripcion}</td>
+                  <td>{rutina.fechacreacion}</td>
+
+                  <td className='iconTable' onClick={() => goActividades()}><img src={playIcon} className='iconIMG' /></td>
+                  <td className='iconTable' onClick={() => goToEdit(rutina)}><img src={editIcon} className='iconIMG' /></td>
+                  <td className='iconTable' onClick={() => deleteRutina(rutina.rid)}><img src={deleteIcon} className='iconIMG' /></td>
+                </tr>
+              ))}
+            </tbody>
+
+          </table>
+
+
+
+
 
 
         </div>
