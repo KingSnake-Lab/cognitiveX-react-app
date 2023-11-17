@@ -1,0 +1,211 @@
+[
+  
+  {
+    "id": 1,
+    "category": "atencion",
+    "type":"domino",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "domino/n1/a1.png",
+    "options": [
+      "domino/conjunto/3-4.png",
+      "domino/conjunto/2-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 2,
+    "category": "atencion",
+    "type":"domino",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "domino/n1/a2.png",
+    "options": [
+      "domino/conjunto/1-2.png",
+      "domino/conjunto/0-5.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 3,
+    "category": "atencion",
+    "type":"domino",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "domino/n1/a3.png",
+    "options": [
+      "domino/conjunto/1-4.png",
+      "domino/conjunto/3-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 4,
+    "category": "atencion",
+    "type":"domino",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "domino/n1/a4.png",
+    "options": [
+      "domino/conjunto/2-5.png",
+      "domino/conjunto/4-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 5,
+    "category": "atencion",
+    "type":"domino",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "domino/n1/a5.png",
+    "options": [
+      "domino/conjunto/0-3.png",
+      "domino/conjunto/1-1.png"
+    ],
+    "correctOptionIndex": 0
+  },
+
+
+
+  {
+    "id": 6,
+    "category": "atencion",
+    "type":"domino",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n2/a1.png",
+    "options": [
+      "domino/conjunto/2-4.png",
+      "domino/conjunto/2-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 7,
+    "category": "atencion",
+    "type":"domino",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n2/a2.png",
+    "options": [
+      "domino/conjunto/2-3.png",
+      "domino/conjunto/2-5.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 8,
+    "category": "atencion",
+    "type":"domino",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n2/a3.png",
+    "options": [
+      "domino/conjunto/0-1.png",
+      "domino/conjunto/1-3.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 9,
+    "category": "atencion",
+    "type":"domino",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n2/a4.png",
+    "options": [
+      "domino/conjunto/1-4.png",
+      "domino/conjunto/0-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 10,
+    "category": "atencion",
+    "type":"domino",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n2/a5.png",
+    "options": [
+      "domino/conjunto/2-6.png",
+      "domino/conjunto/0-6.png"
+    ],
+    "correctOptionIndex": 0
+  },
+
+
+
+  {
+    "id": 11,
+    "category": "atencion",
+    "type":"domino",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n3/a1.png",
+    "options": [
+      "domino/conjunto/4-6.png",
+      "domino/conjunto/2-3.png",
+      "domino/conjunto/3-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 12,
+    "category": "atencion",
+    "type":"domino",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n3/a2.png",
+    "options": [
+      "domino/conjunto/2-2.png",
+      "domino/conjunto/3-5.png",
+      "domino/conjunto/1-5.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 13,
+    "category": "atencion",
+    "type":"domino",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n3/a3.png",
+    "options": [
+      "domino/conjunto/1-1.png",
+      "domino/conjunto/1-6.png",
+      "domino/conjunto/0-0.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 14,
+    "category": "atencion",
+    "type":"domino",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n3/a4.png",
+    "options": [
+      "domino/conjunto/5-6.png",
+      "domino/conjunto/1-3.png",
+      "domino/conjunto/3-6.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 15,
+    "category": "atencion",
+    "type":"domino",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "domino/n3/a5.png",
+    "options": [
+      
+      "domino/conjunto/1-2.png",
+      "domino/conjunto/1-5.png",
+      "domino/conjunto/2-6.png"
+    ],
+    "correctOptionIndex": 2
+  }
+  
+]

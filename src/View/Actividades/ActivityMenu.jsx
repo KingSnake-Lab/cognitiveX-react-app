@@ -17,6 +17,8 @@ import editIcon from '../../assets/icons/editIcon.png';
 import playIcon from '../../assets/icons/playIcon.png';
 
 import ActividadPanel from './actividadesDashboard';
+import { useLocation } from 'react-router-dom';
+
 
 function ActivityMenu() {
 
@@ -112,13 +114,14 @@ function ActivityMenu() {
 
 
 
-  const AddRutina = () => {
-    navigate('/RutinaAdd');
+  const AddRutina = (pacienteID) => {
+   
+    navigate('/RutinaAdd', { state: { pacienteID } });
   }
 
 
-   const goActividades = () => {
-    navigate('/ActividadDashboard');
+   const goActividades = (pacienteID) => {
+    navigate('/ActividadDashboard', { state: { pacienteID }});
   }
 
 
@@ -131,18 +134,21 @@ function ActivityMenu() {
         </div>
         <div className="contSub">
           <h2>Seleccionar paciente</h2>
+     
           <select
-        id="pacientesSelect"
-        value={selectedPaciente}
-        onChange={(e) => setSelectedPaciente(e.target.value)}
-      >
-        <option value={null}>Selecciona un paciente</option>
-        {pacientes.map(paciente => (
-          <option key={paciente.id} value={paciente.id}>
-            {paciente.nombre} {paciente.apellido}
-          </option>
-        ))}
-      </select>
+  id="pacientesSelect"
+  value={selectedPaciente}
+  onChange={(e) => setSelectedPaciente(e.target.value)}
+>
+  <option value={null}>Selecciona un paciente</option>
+  {pacientes.map((paciente) => (
+    <option key={paciente.pid} value={paciente.pid}>
+      {paciente.nombre} {paciente.apellidop} {paciente.apellidom}
+    </option>
+  ))}
+</select>
+
+
         </div>
         <div className="contTable">
           <table class="pacientes-table">
@@ -164,7 +170,7 @@ function ActivityMenu() {
                   <td>{rutina.descripcion}</td>
                   <td>{rutina.fechacreacion}</td>
 
-                  <td className='iconTable' onClick={() => goActividades()}><img src={playIcon} className='iconIMG' /></td>
+                  <td className='iconTable' onClick={() => goActividades(selectedPaciente)}><img src={playIcon} className='iconIMG' /></td>
                   <td className='iconTable' onClick={() => goToEdit(rutina)}><img src={editIcon} className='iconIMG' /></td>
                   <td className='iconTable' onClick={() => deleteRutina(rutina.rid)}><img src={deleteIcon} className='iconIMG' /></td>
                 </tr>
@@ -180,7 +186,8 @@ function ActivityMenu() {
 
         </div>
         <div className="contFooter">
-          <button onClick={AddRutina}>Agregar</button>
+        <button onClick={() => AddRutina(selectedPaciente)}>Agregar</button>
+
         </div>
       </div>
 

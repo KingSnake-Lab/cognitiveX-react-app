@@ -11,79 +11,178 @@ import addIcon from '../../assets/icons/addIcon.png';
 import deleteIcon from '../../assets/icons/deleteIcon.png';
 import editIcon from '../../assets/icons/editIcon.png';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams} from "react-router-dom";
 import React, { useState } from 'react';
 import backendUrl from '../../configServer';
 import Swal from 'sweetalert2';
+import { useLocation } from 'react-router-dom';
+
+
 
 function RutinaAdd() {
+  
+  const location = useLocation();
+  const pacienteID = location.state?.pacienteID;
 
     const navigate = useNavigate(); // Get the navigation function
 
     const Home = () => {
-        navigate('/UsuariosMenu', { state: { personalData } });
-      }
-      const Back = () => {
+        navigate('/ActivityMenu');
+    }
+    const Back = () => {
         navigate(-1);
-      }
+    }
 
-       // Estado para almacenar los datos del paciente
-    const [personalData, setPersonal] = useState({
-        UID: "U00222",
-        PID: "P00022",
-        nombre: '',
-        apellidoPaterno: '',
-        apellidoMaterno: '',
-        telefono: '',
-        sexo: 'Masculino', // Valor predeterminado
-        direccion: '',
-        fecha: '',
-        ingreso: '',
+    // Estado para almacenar los datos del paciente
+    const [rutinaData, setRutina] = useState({
+
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPersonal({ ...personalData, [name]: value });
+        setRutina({ ...rutinaData, [name]: value });
     }
 
 
     const handleSubmit = (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
+        const cadenaJSON = JSON.stringify(data);
 
+      const dataJSON = {
+        "Nombre": rutinaData.Nombre,
+        "Descripcion": rutinaData.Descripcion,
+        "Instruccions": cadenaJSON
+      }
+        // Ahora puedes realizar operaciones de guardado en la base de datos o cualquier otra acción
+        // con la instancia 'paciente', por ejemplo, enviándola a tu servidor.
 
-    // Ahora puedes realizar operaciones de guardado en la base de datos o cualquier otra acción
-    // con la instancia 'paciente', por ejemplo, enviándola a tu servidor.
+        // Ejemplo de cómo enviar la instancia al servidor usando axios
+        axios.post(backendUrl + '/api/rutinas/add', dataJSON)
+            .then(response => {
+                // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
+                if (response.status === 201) {
+                    // La solicitud se completó con éxito (código de estado 200 OK).
+                    // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
+                    console.log('Guardado exitosamente');
+                    // Ejemplo de redirección a una página de éxito.
+                    // navigate('/exito');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Agregado',
+                        text: 'Se agregó correctamente',
+                        confirmButtonColor: '#4CAF50',
+                        confirmButtonText: 'Aceptar'
+                    });
 
-    // Ejemplo de cómo enviar la instancia al servidor usando axios
-    axios.post(backendUrl+'/api/usuarios/add', personalData)
-      .then(response => {
-        // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
-        if (response.status === 201) {
-            // La solicitud se completó con éxito (código de estado 200 OK).
-            // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
-            console.log('Guardado exitosamente');
-            // Ejemplo de redirección a una página de éxito.
-            // navigate('/exito');
-            Swal.fire({
-                icon: 'success',
-                title: 'Agregado',
-                text: 'Se agregó correctamente',
-                confirmButtonColor: '#4CAF50',
-                confirmButtonText: 'Aceptar'
-              });
-            
-            Home();
-          } else {
-            // La solicitud no se completó con éxito, puedes manejar errores aquí.
-            console.log('Error al guardar');
-          }
-      })
-      .catch(error => {
-        console.error('Error al guardar paciente:', error);
-        // Realizar acciones en caso de error.
-      });
+                    Home();
+                } else {
+                    // La solicitud no se completó con éxito, puedes manejar errores aquí.
+                    console.log('Error al guardar');
+                }
+            })
+            .catch(error => {
+                console.error('Error al guardar paciente:', error);
+                // Realizar acciones en caso de error.
+            });
+    };
+
+    const help = () => {
+        Swal.fire({
+            title: "Guía para actividades",
+            imageUrl: deleteIcon
+          });
+    }
+
+// Inicializa el JSON
+const data = {
+    atencion: [],
+    calculo: [],
+    nocion: []
   };
+  
+  // Función para agregar actividades al JSON
+  const addActividad = () => {
+    Swal.fire({
+      title: "Agregar información",
+      html: `
+        <select id="actividadCombobox" class="swal2-input">
+          <option value="domino">Domino</option>
+          <option value="Letras">Letras</option>
+          <option value="billetes">Billetes</option>
+          <option value="comparar">Comparar</option>
+          <option value="nocion">Nocion</option>
+        </select>
+        <input id="nivel1Input" class="swal2-input" placeholder="Nivel 1" type="number" max="5">
+        <input id="nivel2Input" class="swal2-input" placeholder="Nivel 2" type="number" max="5">
+        <input id="nivel3Input" class="swal2-input" placeholder="Nivel 3" type="number" max="5">
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Agregar",
+      showLoaderOnConfirm: true,
+      preConfirm: () => {
+        const actividadCombobox = document.getElementById('actividadCombobox').value;
+        const nivel1Input = document.getElementById('nivel1Input').value;
+        const nivel2Input = document.getElementById('nivel2Input').value;
+        const nivel3Input = document.getElementById('nivel3Input').value;
+  
+        // Agrega la actividad al JSON
+        const nuevaActividad = {
+          actividad: actividadCombobox,
+          n1: nivel1Input,
+          n2: nivel2Input,
+          n3: nivel3Input
+        };
+  
+        // Determina la categoría (atencion, calculo, nocion) y agrega la actividad al JSON correspondiente
+        if (actividadCombobox === "domino" || actividadCombobox === "Letras") {
+          data.atencion.push(nuevaActividad);
+        } else if (actividadCombobox === "billetes" || actividadCombobox === "comparar") {
+          data.calculo.push(nuevaActividad);
+        } else if (actividadCombobox === "nocion") {
+          data.nocion.push(nuevaActividad);
+        }
+  
+        return nuevaActividad;
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {// Después de agregar una actividad al JSON (dentro del then((result) => {...}))
+        // ...
+        
+        // Actualizar el contenido del textarea con la información del JSON
+        const textarea = document.querySelector('.dataAqui');
+        textarea.value = JSON.stringify(data, null, 2); // La indentación de 2 espacios para una presentación más legible
+        
+        // Puedes hacer algo con los valores confirmados, como mostrarlos en otro SweetAlert
+        Swal.fire({
+          title: "Información agregada",  
+          html: `
+            <p>Actividad: ${result.value.actividad}</p>
+            <p>Nivel 1: ${result.value.n1}</p>
+            <p>Nivel 2: ${result.value.n2}</p>
+            <p>Nivel 3: ${result.value.n3}</p>
+          `
+        });
+      }
+    });
+  };
+  
+
+  const mostrar =(idPaciente, nombre, descripcion, instrucciones) => {
+    const cadenaJSON = JSON.stringify(instrucciones);
+
+    Swal.fire({
+      title: "Información agregada",  
+      html: `
+        <p>Paciente: ${idPaciente}</p>
+        <p>Nombre: ${nombre}</p>
+        <p>Descrip: ${descripcion}</p>
+        <p>instrucciones: ${cadenaJSON}</p>
+      `
+    });
+  }
+
     return (
         <html>
             <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'></link>
@@ -95,94 +194,41 @@ function RutinaAdd() {
                 <h3 className='secondTittle'>Crear una nueva rutina</h3>
                 <p>No dejes ningún campo en blanco</p>
                 <div className='containerForm'>
-                <form className='formPacientes' onSubmit={handleSubmit}>
-                    <input
-                        className='inputForm'
-                        type='email'
-                        name='Email'
-                        placeholder='Correo electrónico'
-                        value={personalData.Email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        className='inputForm'
-                        type='password'
-                        name='Password'
-                        placeholder='Contraseña'
-                        value={personalData.Password}
-                        onChange={handleChange}
-                        required
-                    />
-                     <input
-                        className='inputForm'
-                        type='text'
-                        name='Nombre'
-                        placeholder='Nombre(s)'
-                        value={personalData.Nombre}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        className='inputForm'
-                        type='text'
-                        name='ApellidoP'
-                        placeholder='Apellido Paterno'
-                        value={personalData.ApellidoP}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        className='inputForm'
-                        type='text'
-                        name='ApellidoM'
-                        placeholder='Apellido Materno'
-                        value={personalData.ApellidoM}
-                        onChange={handleChange}
-                        required
-                    />
-                    <div className='contentInput'>
+                    <form className='formPacientes' onSubmit={handleSubmit}>
                         <input
-                            className='inputTelefono'
-                            type="number"
-                            name='Telefono'
-                            placeholder='Telefono'
-                            value={personalData.Telefono}
+                            className='inputForm'
+                            type='text'
+                            name='Nombre'
+                            placeholder='Nombre de la rutina'
+                            value={rutinaData.Dombre}
                             onChange={handleChange}
                             required
                         />
-                        <select
-                            className='inputSexo'
-                            name='Genero'
-                            value={personalData.Genero}
+                        <input
+                            className='inputForm'
+                            type='text'
+                            name='Descripcion'
+                            placeholder='Descripción'
+                            value={rutinaData.Descripcion}
                             onChange={handleChange}
                             required
-                        >
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </select>
-                    </div>
-                    <input
-                        className='inputForm'
-                        type='text'
-                        name='Cargo'
-                        placeholder='Cargo'
-                        value={personalData.Cargo}
-                        onChange={handleChange}
-                    />
-                     <input
-                        className='inputForm'
-                        type='text'
-                        name='Especialidad'
-                        placeholder='Especialidad'
-                        value={personalData.Especialidad}
-                        onChange={handleChange}
-                    />
-                    
-               
-                    <button className='ButtonPrimary' >Siguiente</button>
-                </form>
-            </div>
+                        />
+                        <p className='' onClick={help} >¿Tienes dudas con las actividades?</p>
+
+                        <p className='' onClick={addActividad}> + Agregar actividades</p>
+                        
+                        <textarea 
+                        className='dataAqui'>
+
+                        </textarea>
+                        
+
+                        <p onClick={() => mostrar(pacienteID, rutinaData.Nombre, rutinaData.Descripcion, data)}>Ver</p>
+
+
+                        <button className='ButtonPrimary'  >Siguiente</button>
+                    </form>
+                </div>
             </body>
         </html>
     );

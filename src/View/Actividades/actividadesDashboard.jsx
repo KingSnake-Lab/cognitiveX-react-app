@@ -2,9 +2,17 @@ import React from 'react';
 import QuizApp from './QuizApp'; // Ajusta la ruta a tu archivo QuizApp
 import questions from './imgs/questions.json'; // Ajusta la ruta a tu archivo JSON de preguntas
 
+import { useLocation } from 'react-router-dom';
+
 
 function ActividadPanel() {
 
+  const location = useLocation();
+  const pacienteID = location.state?.pacienteID;
+
+  const id = {
+    "id": pacienteID
+  }
   //funcion para obtener el instruccion y crear instancia dle json nuevo 
 
   
@@ -29,7 +37,7 @@ function ActividadPanel() {
     return (
       <div className="App">
 
-        <QuizApp questions={questionsWithImages} />
+        <QuizApp questions={questionsWithImages}/>
       </div>
     );
   }

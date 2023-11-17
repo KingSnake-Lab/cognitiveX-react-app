@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './styleQuizz.css';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import backendUrl from '../../configServer';
 
 const QuizApp = ({ questions }) => {
   const navigate = useNavigate();
@@ -58,7 +61,7 @@ const QuizApp = ({ questions }) => {
 
   const FinalAlert = () => {
     stopTimer(); // Detiene el temporizador al ver los resultados
-    const totalQuizTime = totalTime.toFixed(2);
+    const totalQuizTime = totalTime.toFixed(0);
 
     Swal.fire({
       title: 'Resultados de quizz',
@@ -75,11 +78,49 @@ const QuizApp = ({ questions }) => {
       cancelButtonText: 'Salir',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: 'Guardado',
-          text: 'Se ha guardado el resultado',
-          icon: 'success',
-        });
+
+
+        //guardar
+
+
+
+
+
+        const dataJSON = {
+          "pid": "jdcbj",
+          "rid": "jha", 
+          "tiempo": totalQuizTime,
+          "aciertos": correctAnswers,
+          "errores": incorrectAnswers
+        }
+          // Ahora puedes realizar operaciones de guardado en la base de datos o cualquier otra acción
+          // con la instancia 'paciente', por ejemplo, enviándola a tu servidor.
+  
+          // Ejemplo de cómo enviar la instancia al servidor usando axios
+          axios.post(backendUrl + '/api/stats/add', dataJSON)
+              .then(response => {
+                  // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
+                  if (response.status === 201) {
+                      // La solicitud se completó con éxito (código de estado 200 OK).
+                      // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
+                      console.log('Guardado exitosamente');
+                      // Ejemplo de redirección a una página de éxito.
+                      // navigate('/exito');
+                      Swal.fire({
+                        title: 'Guardado',
+                        text: 'Se ha guardado el resultado',
+                        icon: 'success',
+                      });
+                  } else {
+                      // La solicitud no se completó con éxito, puedes manejar errores aquí.
+                      console.log('Error al guardar');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error al guardar paciente:', error);
+                  // Realizar acciones en caso de error.
+              });
+       
       } else if (result.isDenied) {
         window.location.reload();
       } else {
@@ -105,6 +146,7 @@ const QuizApp = ({ questions }) => {
     <div className="quiz-container">
       <header className="quiz-header">
       <h1>{questions[currentQuestion].title}</h1>
+      <h1>Nivel: {questions[currentQuestion].level}</h1>
       </header>
       {isQuizOver ? (
         <div>
