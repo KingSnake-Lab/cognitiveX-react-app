@@ -22,6 +22,8 @@ import ActividadDashboard from './View/Actividades/actividadesDashboard';
 import ActivityMenu from './View/Actividades/ActivityMenu';
 import RutinaAdd from './View/Actividades/addRutina';
 
+import MenuEstadisticas from './View/Estadisticas/MenuEstadisticas';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,6 +87,10 @@ const router = createBrowserRouter([
   {
     path: "/RutinaAdd",
     element:  <RutinaAdd/>,
+  },
+  {
+    path: "/MenuEstadisticas",
+    element:  <MenuEstadisticas/>,
   },
   
 ]);

@@ -1,0 +1,235 @@
+[
+  
+  {
+    "id": 1,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "comparar/n1/a1.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 2,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "comparar/n1/a2.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 3,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "comparar/n1/a3.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 4,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "comparar/n1/a4.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 5,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "comparar/n1/a5.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+
+
+
+  {
+    "id": 6,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n2/a1.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 7,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n2/a2.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 8,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n2/a3.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 9,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n2/a4.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 10,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n2/a5.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+
+
+
+  {
+    "id": 11,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n3/a1.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 12,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n3/a2.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 13,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n3/a3.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 14,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n3/a4.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 15,
+    "category": "calculo",
+    "type":"comparar",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda y la suma de los números sea mayor",
+    "questionImage": "comparar/n3/a5.png",
+    "options": [
+    
+      "comparar/conjunto/mayorque.png",
+      "comparar/conjunto/menorque.png",
+      "comparar/conjunto/igual.png"
+    ],
+    "correctOptionIndex": 1
+  }
+  
+]

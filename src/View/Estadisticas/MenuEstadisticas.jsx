@@ -1,7 +1,7 @@
 
 
 import Header from '../../header';
-import './styleMenuActivitie.css';
+
 
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -16,23 +16,23 @@ import deleteIcon from '../../assets/icons/deleteIcon.png';
 import editIcon from '../../assets/icons/editIcon.png';
 import playIcon from '../../assets/icons/playIcon.png';
 
-import ActividadPanel from './actividadesDashboard';
+import ActividadPanel from '../Actividades/actividadesDashboard';
 import { useLocation } from 'react-router-dom';
 
 
-function ActivityMenu() {
+function MenuEstadisticas() {
 
   const [pacientes, setPacientes] = useState([]);
   const [selectedPaciente, setSelectedPaciente] = useState(null);
 
   const navigate = useNavigate();
-  const [rutinas, setRutinas] = useState([]);
+  const [estadisticas, setEstadisticas] = useState([]);
 
 
   const deleteRutina = (id) => {
 
 
-    axios.delete(backendUrl + '/api/rutinas/delete/' + id)
+    axios.delete(backendUrl + '/api/estadisticas/delete/' + id)
       .then(response => {
         if (response.status === 200) {
           Swal.fire({
@@ -94,14 +94,7 @@ function ActivityMenu() {
 
   useEffect(() => {
     // Realiza una solicitud al servidor para obtener los datos de pacientes
-    axios.get(backendUrl + '/api/rutinas/all') // Ajusta la URL de la API según tu configuración
-      .then(response => {
-        setRutinas(response.data);
-      })
-      .catch(error => {
-        console.error('Error al obtener datos de pacientes:', error);
-      });
-
+   
       axios.get(backendUrl+'/api/pacientes') // Ajusta la URL de la API según tu configuración
       .then(response => {
         setPacientes(response.data);
@@ -132,13 +125,23 @@ function ActivityMenu() {
    
   }
 
+  const updateTable = (PID) => {
+    axios.get(backendUrl + '/api/estadisticas/'+ PID) // Ajusta la URL de la API según tu configuración
+    .then(response => {
+      setEstadisticas(response.data);
+    })
+    .catch(error => {
+      console.error('Error al obtener datos de pacientes:', error);
+    });
+
+  }
 
   return (
     <div className="ContentHome">
       <Header />
       <div className="contentActivities">
         <div className="contTitle">
-          <h1>Rutinas</h1>
+          <h1>Estadisticas</h1>
         </div>
         <div className="contSub">
           <h2>Seleccionar paciente</h2>
@@ -148,6 +151,7 @@ function ActivityMenu() {
   value={selectedPaciente}
   onChange={(e) => setSelectedPaciente(e.target.value)}
 >
+
   <option value={null}>Selecciona un paciente</option>
   {pacientes.map((paciente) => (
     <option key={paciente.pid} value={paciente.pid}>
@@ -156,31 +160,39 @@ function ActivityMenu() {
   ))}
 </select>
 
+<input type='button' value='Ver' onClick={() => updateTable(selectedPaciente)}></input>
+
 
         </div>
         <div className="contTable">
           <table class="pacientes-table">
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Descripción </th>
-                <th>Fecha de creacion</th>
+                <th>ID</th>
+                <th>Fecha </th>
+                <th>Aciertos</th>
+                <th>Errores</th>
+                <th>Tiempo total</th>
+                <th>Tiempo promedio por pregunta</th>
+                <th>Comentarios</th>
 
-                <th>Play</th>
-                <th>Edit</th>
+
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {rutinas.map(rutina => (
+              {estadisticas.map(rutina => (
                 <tr key={rutina.rid}>
-                  <td>{rutina.nombre}</td>
-                  <td>{rutina.descripcion}</td>
-                  <td>{rutina.fechacreacion}</td>
+                  <td>{rutina.id}</td>
+                  <td>{rutina.fecha}</td>
+                  <td>{rutina.aciertos}</td>
+                  <td>{rutina.errores}</td>
+                  <td>{rutina.tiempo}</td>
+                  <td>{rutina.tiempopromedio}</td>
+                  <td>{rutina.comentario}</td>
 
-                  <td className='iconTable' onClick={() => goActividades(selectedPaciente, rutina.rid, rutina.instruccions)}><img src={playIcon} className='iconIMG' /></td>
-                  <td className='iconTable' onClick={() => goToEdit(rutina)}><img src={editIcon} className='iconIMG' /></td>
-                  <td className='iconTable' onClick={() => deleteRutina(rutina.rid)}><img src={deleteIcon} className='iconIMG' /></td>
+
+                  <td className='iconTable' onClick={() => deleteRutina(rutina.id)}><img src={deleteIcon} className='iconIMG' /></td>
                 </tr>
               ))}
             </tbody>
@@ -193,10 +205,7 @@ function ActivityMenu() {
 
 
         </div>
-        <div className="contFooter">
-        <button onClick={() => AddRutina(selectedPaciente)}>Agregar</button>
-
-        </div>
+        
       </div>
 
 
@@ -204,4 +213,4 @@ function ActivityMenu() {
 
   );
 }
-export default ActivityMenu;
+export default MenuEstadisticas;

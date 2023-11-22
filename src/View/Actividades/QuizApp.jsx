@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import backendUrl from '../../configServer';
 
-const QuizApp = ({ questions }) => {
+const QuizApp = ({ questions, pacienteID, rutinaID }) => {
   const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -62,7 +62,10 @@ const QuizApp = ({ questions }) => {
   const FinalAlert = () => {
     stopTimer(); // Detiene el temporizador al ver los resultados
     const totalQuizTime = totalTime.toFixed(0);
-
+    let tiempo = parseFloat(totalTime.toFixed(0));
+    
+    const prom = (totalTime / questions.length).toFixed(2);
+    let promedio = parseFloat(prom);
     Swal.fire({
       title: 'Resultados de quizz',
       text:
@@ -78,55 +81,75 @@ const QuizApp = ({ questions }) => {
       cancelButtonText: 'Salir',
     }).then((result) => {
       if (result.isConfirmed) {
-
-
-        //guardar
-
-
-
-
-
-        const dataJSON = {
-          "pid": "jdcbj",
-          "rid": "jha", 
-          "tiempo": totalQuizTime,
-          "aciertos": correctAnswers,
-          "errores": incorrectAnswers
-        }
-          // Ahora puedes realizar operaciones de guardado en la base de datos o cualquier otra acción
-          // con la instancia 'paciente', por ejemplo, enviándola a tu servidor.
-  
-          // Ejemplo de cómo enviar la instancia al servidor usando axios
-          axios.post(backendUrl + '/api/stats/add', dataJSON)
+       
+        Swal.fire({
+          title: "Ingresa un comentario",
+          input: "text",
+          inputAttributes: {
+            autocapitalize: "off"
+          },
+          showCancelButton: true,
+          confirmButtonText: "Agregar",
+          showLoaderOnConfirm: true,
+          preConfirm: async (comentario) => {
+            try {
+              const dataJSON = {
+                "Tiempo": tiempo,
+                "Aciertos": correctAnswers,
+                "Errores": incorrectAnswers,
+                "TiempoPromedio": promedio,
+                "Comentario": comentario,
+                "PID": pacienteID,
+                "RID": rutinaID
+              };
+    
+              // Realizar la solicitud para agregar estadísticas aquí...
+              axios.post(backendUrl + '/api/estadisticas/add', dataJSON)
               .then(response => {
-                  // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
-                  if (response.status === 201) {
-                      // La solicitud se completó con éxito (código de estado 200 OK).
-                      // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
-                      console.log('Guardado exitosamente');
-                      // Ejemplo de redirección a una página de éxito.
-                      // navigate('/exito');
-                      Swal.fire({
-                        title: 'Guardado',
-                        text: 'Se ha guardado el resultado',
-                        icon: 'success',
-                      });
-                  } else {
-                      // La solicitud no se completó con éxito, puedes manejar errores aquí.
-                      console.log('Error al guardar');
-                  }
+                // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
+                if (response.status === 201) {
+                  // La solicitud se completó con éxito (código de estado 200 OK).
+                  // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
+                  console.log('Guardado exitosamente');
+                  // Ejemplo de redirección a una página de éxito.
+                  // navigate('/exito');
+                  Swal.fire({
+                    title: 'Guardado',
+                    text: 'Se ha guardado el resultado',
+                    icon: 'success',
+                  });
+                  goReturn();
+                } else {
+                  // La solicitud no se completó con éxito, puedes manejar errores aquí.
+                  console.log('Error al guardar');
+                  goReturn();
+                }
               })
               .catch(error => {
-                  console.error('Error al guardar paciente:', error);
-                  // Realizar acciones en caso de error.
+                console.error('Error al guardar paciente:', error);
+                // Realizar acciones en caso de error.
               });
-       
+
+              // Puedes mostrar un mensaje de éxito o realizar otras acciones si lo deseas.
+             
+            } catch (error) {
+              Swal.showValidationMessage(`
+                Request failed: ${error}
+              `);
+            }
+          },
+          allowOutsideClick: () => !Swal.isLoading()
+        });
       } else if (result.isDenied) {
         window.location.reload();
       } else {
         goReturn();
       }
     });
+    
+
+
+
   };
 
   const goReturn = () => {
@@ -141,12 +164,12 @@ const QuizApp = ({ questions }) => {
   }, []);
 
 
-  
+
   return (
     <div className="quiz-container">
       <header className="quiz-header">
-      <h1>{questions[currentQuestion].title}</h1>
-      <h1>Nivel: {questions[currentQuestion].level}</h1>
+        <h1>{questions[currentQuestion].title}</h1>
+        <h1>Nivel: {questions[currentQuestion].level}</h1>
       </header>
       {isQuizOver ? (
         <div>
@@ -154,6 +177,9 @@ const QuizApp = ({ questions }) => {
           <p>Aciertos: {correctAnswers}</p>
           <p>Errores: {incorrectAnswers}</p>
           <p>Tiempo total del quiz: {totalTime.toFixed(2)} segundos</p>
+          <p>Tiempo promedio por pregunta: {(totalTime / questions.length).toFixed(2)} segundos</p>
+          <p>ID rutina: {rutinaID}</p>
+          <p>ID paciente: {pacienteID}</p>
           <button onClick={FinalAlert}> Ver resultados</button>
         </div>
       ) : (
