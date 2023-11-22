@@ -52,7 +52,7 @@ function ActividadPanel() {
 
 
   const ver = () => {
-    console.log(combinedData);
+    
   }
   const verRecibido = () => {
     console.log(instruccionesObj);

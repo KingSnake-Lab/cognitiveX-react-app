@@ -144,7 +144,7 @@ function MenuEstadisticas() {
           <h1>Estadisticas</h1>
         </div>
         <div className="contSub">
-          <h2>Seleccionar paciente</h2>
+          <h4>Seleccionar paciente</h4>
      
           <select
   id="pacientesSelect"
@@ -160,7 +160,7 @@ function MenuEstadisticas() {
   ))}
 </select>
 
-<input type='button' value='Ver' onClick={() => updateTable(selectedPaciente)}></input>
+<input type='button' value='Ver' className='btnAgregar' onClick={() => updateTable(selectedPaciente)}></input>
 
 
         </div>

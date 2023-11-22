@@ -1,5 +1,5 @@
 .contentActivities{
-    background-color: rgb(126, 85, 85);
+    background-color: rgb(226, 226, 226);
     width: 100vw;
     height: 91vh;
     display: flex;
@@ -18,11 +18,27 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     
+}
+h4{
+    margin: 10px;
+}
+.btnAgregar{
+    background-color: #1db34f;
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+}
+.btnAgregar:hover{
+    scale: 0.9;
 }
 .contTable{
     
-    width: 40%;
+    width: 60%;
 }
 .contFooter{
     
@@ -43,12 +59,16 @@ table {
     margin: 20px auto;
     background-color: #fff;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+   
 }
 
 th, td {
     text-align: left;
     padding: 10px;
+    
 }
+
+
 
 th {
     background-color: #f2f2f2;

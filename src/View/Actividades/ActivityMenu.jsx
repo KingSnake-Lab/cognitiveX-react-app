@@ -138,10 +138,10 @@ function ActivityMenu() {
       <Header />
       <div className="contentActivities">
         <div className="contTitle">
-          <h1>Rutinas</h1>
+          <h1 className='secondTittle'>Rutinas</h1>
         </div>
         <div className="contSub">
-          <h2>Seleccionar paciente</h2>
+          <h4>Seleccionar paciente</h4>
      
           <select
   id="pacientesSelect"
@@ -194,7 +194,7 @@ function ActivityMenu() {
 
         </div>
         <div className="contFooter">
-        <button onClick={() => AddRutina(selectedPaciente)}>Agregar</button>
+        <button className="btnAgregar" onClick={() => AddRutina(selectedPaciente)}>Agregar</button>
 
         </div>
       </div>
