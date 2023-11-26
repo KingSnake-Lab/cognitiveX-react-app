@@ -1,0 +1,26 @@
+.GraficaHombres{
+    width: 400px;
+    height: 400px;
+    background-color: none;
+}
+.GraficaAciertos{
+    width: 400px;
+    height: 400px;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 30px;
+}
+.graficaRutinas{
+    width: 600px;
+    height: 600px;
+    background-color: none;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
