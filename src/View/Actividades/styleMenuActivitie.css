@@ -51,6 +51,14 @@ h4{
     text-align: center;
 }
 
+.dataAqui{
+    width: 300px;
+    height: 200px;
+    max-width: 300px;
+    max-height: 250px;
+    min-width: 300px;
+    min-height: 200px;
+}
 
 table {
     font-family: Arial, sans-serif;

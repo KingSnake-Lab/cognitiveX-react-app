@@ -40,15 +40,7 @@ function ActividadPanel() {
     }
   };
 
-  const questions = [...domino, ...comparar];
-
-
-   // Mapea las rutas de las imágenes en el JSON a las imágenes reales   
-   const questionsWithImages = questions.map((question) => ({
-    ...question,
-    questionImage: loadImage(question.questionImage),
-    options: question.options.map((option) => loadImage(option)),
-  }));
+  const questionsTOTAL = [...domino, ...billetes, ...letras, ...comparar];
 
 
   const ver = () => {
@@ -58,15 +50,72 @@ function ActividadPanel() {
     console.log(instruccionesObj);
   }
 
+  // Función para filtrar las preguntas según las instrucciones
+const filtrarPreguntas = (preguntas, instrucciones) => {
+  const preguntasFiltradas = [];
+
+  instrucciones.forEach(instruccion => {
+    const { actividad, n1, n2, n3 } = instruccion;
+
+    const preguntasActividad = preguntas.filter(
+      pregunta => pregunta.type === actividad
+    );
+
+    const preguntasNivel1 = preguntasActividad.filter(
+      pregunta => pregunta.level === "1"
+    ).slice(0, n1);
+
+    const preguntasNivel2 = preguntasActividad.filter(
+      pregunta => pregunta.level === "2"
+    ).slice(0, n2);
+
+    const preguntasNivel3 = preguntasActividad.filter(
+      pregunta => pregunta.level === "3"
+    ).slice(0, n3);
+
+    preguntasFiltradas.push(...preguntasNivel1, ...preguntasNivel2, ...preguntasNivel3);
+  });
+
+  return preguntasFiltradas;
+};
+
+
+  const instruccionesTEST = [
+    {
+      "actividad": "domino",
+      "n1": 1,
+      "n2": 2,
+      "n3": 1  
+    },
+    {
+      "actividad": "billetes",
+      "n1": 2,
+      "n2": 2,
+      "n3": 2  
+    },
+    // ... (otras instrucciones si las hay)
+  ];
+
+// Aplicar la función y obtener la copia filtrada
+const questions = filtrarPreguntas(questionsTOTAL, instruccionesObj);
+
+// Imprimir la copia filtrada
+console.log(questions);
+
+
+
+   // Mapea las rutas de las imágenes en el JSON a las imágenes reales   
+   const questionsWithImages = questions.map((question) => ({
+    ...question,
+    questionImage: loadImage(question.questionImage),
+    options: question.options.map((option) => loadImage(option)),
+  }));
 
   // <QuizApp questions={questionsWithImages} pacienteID={pacienteID} rutinaID={rutinaID} />
   return (
     <div className="App">
-     <button onClick={ver}>Ver</button>
-     <button onClick={verRecibido}>Ver recibido</button>
-     <h1>{instrucciones}</h1>
-      <QuizApp questions={questionsWithImages} pacienteID={pacienteID} rutinaID={rutinaID} />
 
+     <QuizApp questions={questionsWithImages} pacienteID={pacienteID} rutinaID={rutinaID} />
     
     </div>
   );

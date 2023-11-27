@@ -95,78 +95,71 @@ function RutinaAdd() {
     }
 
 // Inicializa el JSON
-const data = {
-    atencion: [],
-    calculo: [],
-    nocion: []
-  };
-  
-  // Función para agregar actividades al JSON
-  const addActividad = () => {
-    Swal.fire({
-      title: "Agregar información",
-      html: `
-        <select id="actividadCombobox" class="swal2-input">
-          <option value="domino">Domino</option>
-          <option value="Letras">Letras</option>
-          <option value="billetes">Billetes</option>
-          <option value="comparar">Comparar</option>
-          <option value="nocion">Nocion</option>
-        </select>
-        <input id="nivel1Input" class="swal2-input" placeholder="Nivel 1" type="number" max="5">
-        <input id="nivel2Input" class="swal2-input" placeholder="Nivel 2" type="number" max="5">
-        <input id="nivel3Input" class="swal2-input" placeholder="Nivel 3" type="number" max="5">
-      `,
-      showCancelButton: true,
-      confirmButtonText: "Agregar",
-      showLoaderOnConfirm: true,
-      preConfirm: () => {
-        const actividadCombobox = document.getElementById('actividadCombobox').value;
-        const nivel1Input = document.getElementById('nivel1Input').value;
-        const nivel2Input = document.getElementById('nivel2Input').value;
-        const nivel3Input = document.getElementById('nivel3Input').value;
-  
-        // Agrega la actividad al JSON
-        const nuevaActividad = {
-          actividad: actividadCombobox,
-          n1: nivel1Input,
-          n2: nivel2Input,
-          n3: nivel3Input
-        };
-  
-        // Determina la categoría (atencion, calculo, nocion) y agrega la actividad al JSON correspondiente
-        if (actividadCombobox === "domino" || actividadCombobox === "Letras") {
-          data.atencion.push(nuevaActividad);
-        } else if (actividadCombobox === "billetes" || actividadCombobox === "comparar") {
-          data.calculo.push(nuevaActividad);
-        } else if (actividadCombobox === "nocion") {
-          data.nocion.push(nuevaActividad);
-        }
-  
-        return nuevaActividad;
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-      if (result.isConfirmed) {// Después de agregar una actividad al JSON (dentro del then((result) => {...}))
-        // ...
-        
-        // Actualizar el contenido del textarea con la información del JSON
-        const textarea = document.querySelector('.dataAqui');
-        textarea.value = JSON.stringify(data, null, 2); // La indentación de 2 espacios para una presentación más legible
-        
-        // Puedes hacer algo con los valores confirmados, como mostrarlos en otro SweetAlert
-        Swal.fire({
-          title: "Información agregada",  
-          html: `
-            <p>Actividad: ${result.value.actividad}</p>
-            <p>Nivel 1: ${result.value.n1}</p>
-            <p>Nivel 2: ${result.value.n2}</p>
-            <p>Nivel 3: ${result.value.n3}</p>
-          `
-        });
-      }
-    });
-  };
+// Inicializa el JSON como un array
+const data = [];
+
+// Función para agregar actividades al JSON
+const addActividad = () => {
+  Swal.fire({
+    title: "Agregar información",
+    html: `
+      <select id="actividadCombobox" class="swal2-input">
+        <option value="domino">Domino</option>
+        <option value="Letras">Letras</option>
+        <option value="billetes">Billetes</option>
+        <option value="comparar">Comparar</option>
+        <option value="nocion">Nocion</option>
+      </select>
+      <input id="nivel1Input" class="swal2-input" placeholder="Nivel 1" type="number" max="5" value="0">
+      <input id="nivel2Input" class="swal2-input" placeholder="Nivel 2" type="number" max="5" value="0">
+      <input id="nivel3Input" class="swal2-input" placeholder="Nivel 3" type="number" max="5" value="0">
+    `,
+    showCancelButton: true,
+    confirmButtonText: "Agregar",
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      const actividadCombobox = document.getElementById('actividadCombobox').value;
+      const nivel1Input = parseInt(document.getElementById('nivel1Input').value);
+      const nivel2Input = parseInt(document.getElementById('nivel2Input').value);
+      const nivel3Input = parseInt(document.getElementById('nivel3Input').value);
+
+      // Limitar el valor máximo a 5
+      const limiteNiveles = (valor) => Math.min(5, valor);
+
+      // Agrega la actividad al JSON como un nuevo objeto al array
+      const nuevaActividad = {
+        actividad: actividadCombobox,
+        n1: limiteNiveles(nivel1Input),
+        n2: limiteNiveles(nivel2Input),
+        n3: limiteNiveles(nivel3Input)
+      };
+
+      data.push(nuevaActividad);
+
+      return nuevaActividad;
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Actualizar el contenido del textarea con la información del JSON
+      const textarea = document.querySelector('.dataAqui');
+      textarea.value = JSON.stringify(data, null, 2);
+
+      Swal.fire({
+        title: "Información agregada",
+        html: `
+          <p>Actividad: ${result.value.actividad}</p>
+          <p>Nivel 1: ${result.value.n1}</p>
+          <p>Nivel 2: ${result.value.n2}</p>
+          <p>Nivel 3: ${result.value.n3}</p>
+        `
+      });
+    }
+  });
+};
+
+
+
   
 
   const mostrar =(idPaciente, nombre, descripcion, instrucciones) => {
@@ -218,15 +211,13 @@ const data = {
                         <p className='' onClick={addActividad}> + Agregar actividades</p>
                         
                         <textarea 
-                        className='dataAqui'>
+                        className='dataAqui' readOnly>
 
                         </textarea>
                         
 
-                        <p onClick={() => mostrar(pacienteID, rutinaData.Nombre, rutinaData.Descripcion, data)}>Ver</p>
 
-
-                        <button className='ButtonPrimary'  >Siguiente</button>
+                        <button className='ButtonPrimary'  >Finalizar</button>
                     </form>
                 </div>
             </body>

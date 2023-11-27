@@ -34,7 +34,9 @@ function Header({uid}) {
   const goToExpedientes= () => {
     navigate('/Expedientes'); // Use navigate to go to the '/Pacientes' route
   }
-  
+  const Exit= () => {
+    navigate('/'); // Use navigate to go to the '/Pacientes' route
+  }
   
   return (
     <header className="header">
@@ -49,7 +51,7 @@ function Header({uid}) {
           <li onClick={goToExpedientes}>Expedientes</li>
           <li onClick={goToEstaddisticas}>Estadísticas</li>
           <li onClick={goToActivity}>Actividades</li>
-          
+          <li onClick={Exit}>Cerrar sesión</li>
         </ul>
       </nav>
     </header>
