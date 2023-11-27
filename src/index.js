@@ -24,6 +24,11 @@ import RutinaAdd from './View/Actividades/addRutina';
 
 import MenuEstadisticas from './View/Estadisticas/MenuEstadisticas';
 import Expedientes from './View/Expedientes/Expedientes';
+
+import PacientesModify1 from './View/Pacientes/Modify1';
+import Modify2 from './View/Pacientes/Modify2';
+import Modify3 from './View/Pacientes/Modify3';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -96,8 +101,18 @@ const router = createBrowserRouter([
     path: "/Expedientes",
     element:  <Expedientes/>,
   },
-
-  
+  {
+    path: "/PacientesModify1",
+    element:  <PacientesModify1/>,
+  },
+  {
+    path: "/Modify2",
+    element:  <Modify2/>,
+  },
+  {
+    path: "/Modify3",
+    element:  <Modify3/>,
+  },
   
 ]);
 

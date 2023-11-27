@@ -109,25 +109,25 @@ const handleChange = (e) => {
                     <form className='formPacientes'>
 
                     <input className='inputForm' 
-                        type='text' placeholder='Nivel educativo'
+                        type='text' placeholder='Enfermedades'
                         name='Enfermedades'
                         value={pacienteDataFinal.Enfermedades}
                         onChange={handleChange}/>
 
 <input className='inputForm' 
-                        type='text' placeholder='Nivel educativo'
+                        type='text' placeholder='Alergias'
                         name='Alergias'
                         value={pacienteDataFinal.Alergias}
                         onChange={handleChange}/>
 
 <input className='inputForm' 
-                        type='text' placeholder='Nivel educativo'
+                        type='text' placeholder='Antecedentes'
                         name='Antecedentes'
                         value={pacienteDataFinal.Antecedentes}
                         onChange={handleChange}/>
 
 <input className='inputForm' 
-                        type='text' placeholder='Nivel educativo'
+                        type='text' placeholder='Medicamentos'
                         name='Medicamentos'
                         value={pacienteDataFinal.Medicamentos}
                         onChange={handleChange}/>

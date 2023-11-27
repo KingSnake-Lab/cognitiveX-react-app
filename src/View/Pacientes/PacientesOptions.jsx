@@ -56,6 +56,11 @@ function PacientesOptions() {
     
   }
   
+  const goToEdit = (data) => {
+
+   
+    navigate('/PacientesModify1', { state: { data } });
+  }
 
   useEffect(() => {
     // Realiza una solicitud al servidor para obtener los datos de pacientes
@@ -76,7 +81,7 @@ function PacientesOptions() {
     </header>
     <body className='containerPacientesMenu'>
 
-      <h3 className='secondTittle'>Welcome</h3>
+      <h3 className='secondTittle'>Pacientes</h3>
 
       <div className='TablecontainerPacientes'>
         <table class="pacientes-table">
@@ -97,7 +102,7 @@ function PacientesOptions() {
             <td>{paciente.apellidop}</td>
             <td>{paciente.apellidom}</td>
             <td>{paciente.fechaingreso}</td>
-            <td className='iconTable'><img src={editIcon} className='iconIMG'/></td>
+            <td className='iconTable' onClick={() => goToEdit(paciente)}><img src={editIcon} className='iconIMG'/></td>
             <td className='iconTable'  onClick={() => deletePaciente(paciente.pid)}><img src={deleteIcon} className='iconIMG'/></td>
           </tr>
         ))}
