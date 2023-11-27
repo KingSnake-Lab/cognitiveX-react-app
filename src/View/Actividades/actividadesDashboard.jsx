@@ -5,6 +5,10 @@ import billetes from './imgs/billetes.json'; // Ajusta la ruta a tu archivo JSON
 import letras from './imgs/letras.json'; // Ajusta la ruta a tu archivo JSON de preguntas
 import comparar from './imgs/comparar.json'; // Ajusta la ruta a tu archivo JSON de preguntas
 
+import gnosiasSiluetas from './imgs/gnosiasSiluetas.json';
+import refranes from './imgs/lenguajeRefranes.json';
+import temporal from './imgs/temporal.json';
+
 //import questions from './imgs/questions.json'; // Ajusta la ruta a tu archivo JSON de preguntas
 
 import { useLocation } from 'react-router-dom';
@@ -40,7 +44,7 @@ function ActividadPanel() {
     }
   };
 
-  const questionsTOTAL = [...domino, ...billetes, ...letras, ...comparar];
+  const questionsTOTAL = [...domino, ...billetes, ...letras, ...comparar, ...gnosiasSiluetas, ...refranes, ...temporal];
 
 
   const ver = () => {

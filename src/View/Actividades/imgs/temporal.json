@@ -1,0 +1,233 @@
+[
+  
+  {
+    "id": 1,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n1/a1.png",
+    "options": [
+    
+      "temporal/conjunto/1-1-1.png",
+      "temporal/conjunto/1-1-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 2,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n1/a2.png",
+    "options": [
+    
+      "temporal/conjunto/1-2-1.png",
+      "temporal/conjunto/1-2-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 3,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n1/a3.png",
+    "options": [
+    
+      "temporal/conjunto/1-3-1.png",
+      "temporal/conjunto/1-3-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 4,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n1/a4.png",
+    "options": [
+    
+      "temporal/conjunto/1-4-1.png",
+      "temporal/conjunto/1-4-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 5,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n1/a5.png",
+    "options": [
+    
+      "temporal/conjunto/1-5-1.png",
+      "temporal/conjunto/1-5-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+
+
+
+  {
+    "id": 6,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n2/a1.png",
+    "options": [
+    
+      "temporal/conjunto/2-1-1.png",
+      "temporal/conjunto/2-1-2.png",
+      "temporal/conjunto/2-1-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 7,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda ",
+    "questionImage": "temporal/n2/a2.png",
+    "options": [
+      "temporal/conjunto/2-2-1.png",
+      "temporal/conjunto/2-2-2.png",
+      "temporal/conjunto/2-2-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 8,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n2/a3.png",
+    "options": [
+    
+      "temporal/conjunto/2-3-1.png",
+      "temporal/conjunto/2-3-2.png",
+      "temporal/conjunto/2-3-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+  {
+    "id": 9,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n2/a4.png",
+    "options": [
+    
+      "temporal/conjunto/2-4-1.png",
+      "temporal/conjunto/2-4-2.png",
+      "temporal/conjunto/2-4-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 10,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n2/a5.png",
+    "options": [
+    
+      "temporal/conjunto/2-5-1.png",
+      "temporal/conjunto/2-5-2.png",
+      "temporal/conjunto/2-5-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+
+
+
+  {
+    "id": 11,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n3/a1.png",
+    "options": [
+    
+      "temporal/conjunto/3-1-1.png",
+      "temporal/conjunto/3-1-2.png",
+      "temporal/conjunto/3-1-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+  {
+    "id": 12,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n3/a2.png",
+    "options": [
+    
+     
+      "temporal/conjunto/3-2-1.png",
+      "temporal/conjunto/3-2-2.png",
+      "temporal/conjunto/3-2-3.png"
+      
+    ],
+    "correctOptionIndex": 2
+  },
+  {
+    "id": 13,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n3/a3.png",
+    "options": [
+    
+    
+      "temporal/conjunto/3-3-1.png",
+      "temporal/conjunto/3-3-2.png",
+      "temporal/conjunto/3-3-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 14,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n3/a4.png",
+    "options": [
+     
+      "temporal/conjunto/3-4-1.png",
+      "temporal/conjunto/3-4-2.png",
+      "temporal/conjunto/3-4-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+  {
+    "id": 15,
+    "category": "nocion",
+    "type":"temporal",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "temporal/n3/a5.png",
+    "options": [
+    
+         
+      "temporal/conjunto/3-5-1.png",
+      "temporal/conjunto/3-5-2.png",
+      "temporal/conjunto/3-5-3.png"
+    ],
+    "correctOptionIndex": 2
+  }
+  
+]

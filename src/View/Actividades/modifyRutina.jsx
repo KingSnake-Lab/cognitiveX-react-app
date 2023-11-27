@@ -19,9 +19,15 @@ import { useLocation } from 'react-router-dom';
 
 
 
-function RutinaAdd() {
+function ModifyRutina() {
   
   const location = useLocation();
+  const { datas } = location.state; // Obten los datos del usuario a editar
+
+  // Inicializa el estado con los datos del usuario
+  const [rutinaDatos, setRutinaData] = useState(datas);
+   
+
   const pacienteID = location.state?.pacienteID;
 
     const navigate = useNavigate(); // Get the navigation function
@@ -50,21 +56,21 @@ function RutinaAdd() {
         const cadenaJSON = JSON.stringify(data);
 
       const dataJSON = {
-        "Nombre": rutinaData.Nombre,
-        "Descripcion": rutinaData.Descripcion,
+        "Nombre": rutinaDatos.nombre,
+        "Descripcion": rutinaDatos.descripcion,
         "Instruccions": cadenaJSON
       }
         // Ahora puedes realizar operaciones de guardado en la base de datos o cualquier otra acción
         // con la instancia 'paciente', por ejemplo, enviándola a tu servidor.
 
         // Ejemplo de cómo enviar la instancia al servidor usando axios
-        axios.post(backendUrl + '/api/rutinas/add', dataJSON)
+        axios.put(backendUrl + `/api/rutinas/modify/${rutinaDatos.rid}`, dataJSON)
             .then(response => {
                 // Realizar acciones después de guardar exitosamente (por ejemplo, redireccionar).
-                if (response.status === 201) {
+                if (response.status === 200) {
                     // La solicitud se completó con éxito (código de estado 200 OK).
                     // Realiza acciones después de guardar exitosamente, por ejemplo, redirigir.
-                    console.log('Guardado exitosamente');
+                    console.log('Editado exitosamente');
                     // Ejemplo de redirección a una página de éxito.
                     // navigate('/exito');
                     Swal.fire({
@@ -186,7 +192,7 @@ const addActividad = () => {
             </header>
             <body className='containerPacientesMenu'>
 
-                <h3 className='secondTittle'>Crear una nueva rutina</h3>
+                <h3 className='secondTittle'>Modificar una rutina</h3>
                 <p>No dejes ningún campo en blanco</p>
                 <div className='containerForm'>
                     <form className='formPacientes' onSubmit={handleSubmit}>
@@ -195,8 +201,8 @@ const addActividad = () => {
                             type='text'
                             name='Nombre'
                             placeholder='Nombre de la rutina'
-                            value={rutinaData.Dombre}
-                            onChange={handleChange}
+                            value={rutinaDatos.nombre}
+                            onChange={(e) => setRutinaData({ ...rutinaDatos, nombre: e.target.value })}
                             required
                         />
                         <input
@@ -204,8 +210,8 @@ const addActividad = () => {
                             type='text'
                             name='Descripcion'
                             placeholder='Descripción'
-                            value={rutinaData.Descripcion}
-                            onChange={handleChange}
+                            value={rutinaDatos.descripcion}
+                            onChange={(e) => setRutinaData({ ...rutinaDatos, descripcion: e.target.value })}
                             required
                         />
                         <p className='' onClick={help} >¿Tienes dudas con las actividades?</p>
@@ -213,7 +219,7 @@ const addActividad = () => {
                         <p className='' onClick={addActividad}> + Agregar actividades</p>
                         
                         <textarea 
-                        className='dataAqui' readOnly>
+                        className='dataAqui' readOnly value={JSON.stringify(rutinaDatos.instruccions, null, 2)}>
 
                         </textarea>
                         
@@ -227,4 +233,4 @@ const addActividad = () => {
     );
 }
 
-export default RutinaAdd;
+export default ModifyRutina;

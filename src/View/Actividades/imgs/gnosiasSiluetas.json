@@ -1,0 +1,219 @@
+[
+  
+  {
+    "id": 1,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n1/a1.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/1-1-1.png",
+      "gnosiaSiluetas/conjunto/1-1-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 2,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n1/a2.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/1-2-1.png",
+      "gnosiaSiluetas/conjunto/1-2-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 3,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n1/a3.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/1-3-1.png",
+      "gnosiaSiluetas/conjunto/1-3-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 4,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n1/a4.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/1-4-1.png",
+      "gnosiaSiluetas/conjunto/1-4-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 5,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n1/a5.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/1-5-1.png",
+      "gnosiaSiluetas/conjunto/1-5-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+
+
+
+  {
+    "id": 6,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n2/a1.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/2-1-1.png",
+      "gnosiaSiluetas/conjunto/2-1-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 7,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda ",
+    "questionImage": "gnosiaSiluetas/n2/a2.png",
+    "options": [
+      "gnosiaSiluetas/conjunto/2-2-1.png",
+      "gnosiaSiluetas/conjunto/2-2-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 8,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n2/a3.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/2-3-1.png",
+      "gnosiaSiluetas/conjunto/2-3-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 9,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n2/a4.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/2-4-1.png",
+      "gnosiaSiluetas/conjunto/2-4-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 10,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n2/a5.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/2-5-1.png",
+      "gnosiaSiluetas/conjunto/2-5-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+
+
+
+  {
+    "id": 11,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n3/a1.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/3-1-1.png",
+      "gnosiaSiluetas/conjunto/3-1-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 12,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n3/a2.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/3-2-1.png",
+      "gnosiaSiluetas/conjunto/3-2-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 13,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n3/a3.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/3-3-1.png",
+      "gnosiaSiluetas/conjunto/3-3-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 14,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n3/a4.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/3-4-1.png",
+      "gnosiaSiluetas/conjunto/3-4-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 15,
+    "category": "gnosias",
+    "type":"gnosiaSiluetas",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "gnosiaSiluetas/n3/a5.png",
+    "options": [
+    
+      "gnosiaSiluetas/conjunto/3-5-1.png",
+      "gnosiaSiluetas/conjunto/3-5-2.png"
+    ],
+    "correctOptionIndex": 1
+  }
+  
+]

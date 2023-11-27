@@ -29,6 +29,8 @@ import PacientesModify1 from './View/Pacientes/Modify1';
 import Modify2 from './View/Pacientes/Modify2';
 import Modify3 from './View/Pacientes/Modify3';
 
+import ModifyRutina from './View/Actividades/modifyRutina';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -113,6 +115,11 @@ const router = createBrowserRouter([
     path: "/Modify3",
     element:  <Modify3/>,
   },
+  {
+    path: "/ModifyRutina",
+    element:  <ModifyRutina/>,
+  },
+  
   
 ]);
 

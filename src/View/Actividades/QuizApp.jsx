@@ -174,12 +174,7 @@ const QuizApp = ({ questions, pacienteID, rutinaID }) => {
       {isQuizOver ? (
         <div>
           <h2>¡Quiz completado! </h2>
-          <p>Aciertos: {correctAnswers}</p>
-          <p>Errores: {incorrectAnswers}</p>
-          <p>Tiempo total del quiz: {totalTime.toFixed(2)} segundos</p>
-          <p>Tiempo promedio por pregunta: {(totalTime / questions.length).toFixed(2)} segundos</p>
-          <p>ID rutina: {rutinaID}</p>
-          <p>ID paciente: {pacienteID}</p>
+          
           <button onClick={FinalAlert}> Ver resultados</button>
         </div>
       ) : (

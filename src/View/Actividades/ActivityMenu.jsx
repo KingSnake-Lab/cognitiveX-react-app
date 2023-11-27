@@ -84,10 +84,8 @@ function ActivityMenu() {
     })
   }
 
-  const goToEdit = (data) => {
-
-
-    navigate('/ModifyPersonal', { state: { data } });
+  const goToEdit = (datas) => {
+    navigate('/ModifyRutina', { state: { datas } });
   }
 
 
@@ -114,10 +112,7 @@ function ActivityMenu() {
 
 
 
-  const AddRutina = (pacienteID) => {
-   
-    navigate('/RutinaAdd', { state: { pacienteID } });
-  }
+ 
 
 
    const goActividades = (pacienteID, rutinaID, instrucciones) => {
@@ -132,6 +127,10 @@ function ActivityMenu() {
    
   }
 
+  const AddRutina = (pacienteID) => {
+    
+    navigate('/RutinaAdd', { state: { pacienteID } });
+  }
 
   return (
     <div className="ContentHome">

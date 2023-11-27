@@ -1,0 +1,237 @@
+[
+  
+  {
+    "id": 1,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n1/a1.png",
+    "options": [
+    
+      "refranes/conjunto/1-1-1.png",
+      "refranes/conjunto/1-1-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 2,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n1/a2.png",
+    "options": [
+    
+      "refranes/conjunto/1-2-1.png",
+      "refranes/conjunto/1-2-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 3,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n1/a3.png",
+    "options": [
+    
+      "refranes/conjunto/1-3-1.png",
+      "refranes/conjunto/1-3-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 4,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n1/a4.png",
+    "options": [
+    
+      "refranes/conjunto/1-4-1.png",
+      "refranes/conjunto/1-4-2.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 5,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"1",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n1/a5.png",
+    "options": [
+    
+      "refranes/conjunto/1-5-1.png",
+      "refranes/conjunto/1-5-2.png"
+    ],
+    "correctOptionIndex": 1
+  },
+
+
+
+  {
+    "id": 6,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n2/a1.png",
+    "options": [
+    
+      "refranes/conjunto/2-1-1.png",
+      "refranes/conjunto/2-1-2.png",
+      "refranes/conjunto/2-1-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+  {
+    "id": 7,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda ",
+    "questionImage": "refranes/n2/a2.png",
+    "options": [
+      "refranes/conjunto/2-2-1.png",
+      "refranes/conjunto/2-2-2.png",
+      "refranes/conjunto/2-2-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 8,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n2/a3.png",
+    "options": [
+    
+      "refranes/conjunto/2-3-1.png",
+      "refranes/conjunto/2-3-2.png",
+      "refranes/conjunto/2-3-3.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 9,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n2/a4.png",
+    "options": [
+    
+      "refranes/conjunto/2-4-1.png",
+      "refranes/conjunto/2-4-2.png",
+      "refranes/conjunto/2-4-3.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 10,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"2",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n2/a5.png",
+    "options": [
+    
+      "refranes/conjunto/2-5-1.png",
+      "refranes/conjunto/2-5-2.png",
+      "refranes/conjunto/2-5-3.png"
+    ],
+    "correctOptionIndex": 2
+  },
+
+
+
+  {
+    "id": 11,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n3/a1.png",
+    "options": [
+    
+      "refranes/conjunto/3-1-1.png",
+      "refranes/conjunto/3-1-2.png",
+      "refranes/conjunto/3-1-3.png",
+      "refranes/conjunto/3-1-4.png"
+    ],
+    "correctOptionIndex": 3
+  },
+  {
+    "id": 12,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n3/a2.png",
+    "options": [
+    
+     
+      "refranes/conjunto/3-2-1.png",
+      "refranes/conjunto/3-2-2.png",
+      "refranes/conjunto/3-2-3.png",
+      "refranes/conjunto/3-2-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 13,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n3/a3.png",
+    "options": [
+    
+    
+      "refranes/conjunto/3-3-1.png",
+      "refranes/conjunto/3-3-2.png",
+      "refranes/conjunto/3-3-3.png",
+      "refranes/conjunto/3-3-4.png"
+    ],
+    "correctOptionIndex": 1
+  },
+  {
+    "id": 14,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n3/a4.png",
+    "options": [
+     
+      "refranes/conjunto/3-4-1.png",
+      "refranes/conjunto/3-4-2.png",
+      "refranes/conjunto/3-4-3.png",
+      "refranes/conjunto/3-4-4.png"
+    ],
+    "correctOptionIndex": 0
+  },
+  {
+    "id": 15,
+    "category": "lenguaje",
+    "type":"refranes",
+    "level":"3",
+    "title": "Selecciona la imagen que corresponda",
+    "questionImage": "refranes/n3/a5.png",
+    "options": [
+    
+         
+      "refranes/conjunto/3-5-1.png",
+      "refranes/conjunto/3-5-2.png",
+      "refranes/conjunto/3-5-3.png",
+      "refranes/conjunto/3-5-4.png"
+    ],
+    "correctOptionIndex": 3
+  }
+  
+]
